@@ -6,7 +6,17 @@ POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-  "name": "Jane Doe",
-  "email": "janedoe@example.com",
+  "name": "Jan Huang",
+  "email": "janhuang@example.com",
+  "password": "123456"
+}
+
+
+### Sign In 
+POST http://localhost:8080/api/auth/signin
+Content-Type: application/json
+
+{
+  "email": "janhuang@example.com",
   "password": "123456"
 }
