@@ -1,0 +1,12 @@
+### Get list of users
+GET http://localhost:8080/api/auth/users
+
+### Create a new user
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "email": "janedoe@example.com",
+  "password": "123456"
+}
