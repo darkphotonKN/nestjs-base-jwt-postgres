@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { AuthGuard } from 'src/guards/auth.guard';
 import { CreateUserDTO } from './dtos/create-user.dto';
 import { SignInDTO } from './dtos/signin.dto';
 
@@ -8,6 +9,8 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Get('users')
+  // @Roles(RoleUser)
+  @UseGuards(AuthGuard)
   getUsers() {
     return this.authService.getUsers();
   }

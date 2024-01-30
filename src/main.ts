@@ -3,6 +3,9 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
+  // load environment variables from .env file
+  // dotenv.config();
+
   const app = await NestFactory.create(AppModule);
 
   // sets the global base route to prefix all apis routes

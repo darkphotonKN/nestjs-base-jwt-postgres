@@ -1,13 +1,15 @@
 ### Get list of users
 GET http://localhost:8080/api/auth/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiSmFuIEh1YW5nIiwiaWF0IjoxNzA2NjE0OTE0LCJleHAiOjE3MDY3MDEzMTR9.hTgTWD5JyNHvAXE2Lx7NnPEtpeOI0IMGvtvobj0NW2g
+
 
 ### Create a new user
 POST http://localhost:8080/api/auth/signup
 Content-Type: application/json
 
 {
-  "name": "Jan Huang",
-  "email": "janhuang@example.com",
+  "name": "ASDAS asd",
+  "email": "janhuang2@example.com",
   "password": "123456"
 }
 
@@ -20,3 +22,6 @@ Content-Type: application/json
   "email": "janhuang@example.com",
   "password": "123456"
 }
+
+
+
