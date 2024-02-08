@@ -5,10 +5,12 @@ import { User } from './auth/entities/user.entity';
 
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
-import { RolesGuard } from './guards/roles.guard';
+
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -23,11 +25,5 @@ import { RolesGuard } from './guards/roles.guard';
   ],
 
   controllers: [AppController],
-  providers: [
-    {
-      provide: 'APP_GUARD',
-      useClass: RolesGuard,
-    },
-  ],
 })
 export class AppModule {}

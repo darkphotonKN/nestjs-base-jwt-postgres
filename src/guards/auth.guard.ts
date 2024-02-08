@@ -26,11 +26,13 @@ export class AuthGuard implements CanActivate {
       // so that we can access it in our route handlers
       request['user'] = payload;
     } catch {
+      // jwt decryption failed, so throw an unauthorized exception
       throw new UnauthorizedException();
     }
     return true;
   }
 
+  // get token from authorization header
   private extractTokenFromHeader(request: Request): string | undefined {
     const [type, token] = request.headers.authorization?.split(' ') ?? [];
     return type === 'Bearer' ? token : undefined;

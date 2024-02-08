@@ -1,6 +1,6 @@
 ### Get list of users
 GET http://localhost:8080/api/auth/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiSmFuIEh1YW5nIiwiaWF0IjoxNzA2NjE0OTE0LCJleHAiOjE3MDY3MDEzMTR9.hTgTWD5JyNHvAXE2Lx7NnPEtpeOI0IMGvtvobj0NW2g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiSmFuIEh1YW5nIiwiaWF0IjoxNzA3Mzk2NTg2LCJleHAiOjE3MDc0MDAxODZ9.LBCr0WY21WfLES4bV7Z2AkYOjq1WLP03vkQdC9B1yc8
 
 
 ### Create a new user

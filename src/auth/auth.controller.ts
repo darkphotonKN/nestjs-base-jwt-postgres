@@ -3,13 +3,11 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { CreateUserDTO } from './dtos/create-user.dto';
 import { SignInDTO } from './dtos/signin.dto';
-
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Get('users')
-  // @Roles(RoleUser)
   @UseGuards(AuthGuard)
   getUsers() {
     return this.authService.getUsers();

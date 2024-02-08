@@ -25,6 +25,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
+  // gets a single user
   async getUser(email: string): Promise<User> {
     const user = await this.usersRepo.findOne({ where: { email } });
 
