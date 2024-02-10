@@ -6,8 +6,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
-import { CreateUserDTO } from './dtos/create-user.dto';
+import { User } from '../users/entities/user.entity';
 import { SignInDTO } from './dtos/signin.dto';
 import { JwtService } from '@nestjs/jwt';
 
@@ -24,48 +23,6 @@ export class AuthService {
     // jwt service injection
     private jwtService: JwtService,
   ) {}
-
-  // gets a single user
-  async getUser(email: string): Promise<User> {
-    const user = await this.usersRepo.findOne({ where: { email } });
-
-    if (user) {
-      return user;
-    }
-  }
-
-  // gets list of all users
-  async getUsers(): Promise<User[]> {
-    const users = await this.usersRepo.find();
-
-    return users;
-  }
-
-  // signs up new user and saves to db
-  async signup({ name, email, password }: CreateUserDTO): Promise<User> {
-    // hash password before saving
-    const salt = 10;
-    const hash = await bcrypt.hash(password, salt);
-
-    try {
-      // find if user exists already to prevent duplicate users
-      const user = await this.getUser(email);
-
-      if (user) {
-        console.log('User found while attempting to signup:', user);
-        throw new HttpException('User already exists', 500);
-      }
-
-      // create a new user
-      const newUser = this.usersRepo.create({ name, email, password: hash });
-
-      // save new user to db
-      return await this.usersRepo.save(newUser);
-    } catch (err) {
-      // throw error if user can't be saved
-      throw new HttpException(err.message, 500);
-    }
-  }
 
   // authenticate user signin and provide user info
   async signin({
