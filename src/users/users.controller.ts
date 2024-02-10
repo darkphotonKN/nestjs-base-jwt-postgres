@@ -7,11 +7,6 @@ import { CreateUserDTO } from './dtos/create-user.dto';
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
-  @Post('signup')
-  signup(@Body() body: CreateUserDTO) {
-    return this.usersService.signup(body);
-  }
-
   @Get('/')
   @UseGuards(AuthGuard)
   getUsers() {
@@ -22,5 +17,10 @@ export class UsersController {
   @UseGuards(AuthGuard)
   getUser(@Param('email') email: string) {
     return this.usersService.getUser(email);
+  }
+
+  @Post('signup')
+  signup(@Body() body: CreateUserDTO) {
+    return this.usersService.signup(body);
   }
 }
